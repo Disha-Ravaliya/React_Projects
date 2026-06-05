@@ -1,0 +1,15 @@
+/* Grid.css */
+.square-grid {
+    position: relative;
+    width: 100%;
+    height: 100%; /* Important: takes full height of parent app-container */
+    background-color: #0b0c10; /* Base background from your image */
+    overflow: hidden;
+}
+
+.square-grid__wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 0; /* Keeps the canvas in the background layer */
+}

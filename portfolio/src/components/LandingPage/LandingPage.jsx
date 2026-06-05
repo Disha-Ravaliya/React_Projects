@@ -2,14 +2,14 @@ import React from 'react';
 
 export default function LandingPage() {
     return (
-        // Changed to min-h-screen, added gap-12, changed items-start to items-center
-        <div className='min-h-screen w-full bg-black flex flex-col justify-center items-center sm:flex-row px-6 sm:px-10 py-12 gap-12'>
+        // Changed to min-h-screen, added gap-12, changed items-start to items-center, changed bg-black to bg-transparent
+        <div className='min-h-screen w-full bg-transparent flex flex-col justify-center items-center sm:flex-row px-6 sm:px-10 py-12 gap-12'>
 
             {/* Left Side: Removed hardcoded mt-30 and h-full so it naturally centers */}
             <div className='leftSidepart w-full sm:w-1/2 flex flex-col justify-center items-start gap-5'>
 
                 {/* top badge - added flex-wrap */}
-                <div className="flex flex-wrap items-center gap-3 px-6 py-2.5 bg-[#030712]/60 border border-sky-500/20 rounded-md font-mono text-sm font-semibold text-sky-300 tracking-[0.2em] mb-4 sm:mb-10">
+                <div className="pointer-events-auto flex flex-wrap items-center gap-3 px-6 py-2.5 bg-[#030712]/60 border border-sky-500/20 rounded-md font-mono text-sm font-semibold text-sky-300 tracking-[0.2em] mb-4 sm:mb-10">
                     <span className="w-2 h-2 mr-1 bg-sky-300 rounded-full shadow-[0_0_8px_#7dd3fc]" />
                     <span>PROBLEM SOLVER</span> <span className="text-sky-500/40">•</span>
                     <span>REACT LEARNER</span> <span className="text-sky-500/40">•</span>
@@ -17,20 +17,20 @@ export default function LandingPage() {
                 </div>
 
                 {/* ( the big name) */}
-                <div className='text-white'>
-                    <h2 className='bg-gradient-to-r text-5xl from-blue-500 to-orange-500 bg-clip-text text-transparent pb-6'>
+                <div className='pointer-events-auto text-white'>
+                    <h2 className='bg-gradient-to-r text-5xl sm:text-7xl from-blue-500 to-orange-500 bg-clip-text text-transparent pb-6'>
                         Disha <span className='block text-white'> Ravaliya</span>
                     </h2>
                 </div>
 
                 {/* detail paragraph */}
-                <p className='text-[#989493]'>
+                <p className='pointer-events-auto text-[#989493]'>
                     CS student with a <span className='text-white font-bold'>strong foundation in algorithms & data structures. </span>
                     Now turning that analytical brain toward building real products with React. I solve problems for fun — the coding kind.
                 </p>
 
                 {/* visit button - added flex-wrap */}
-                <div className="flex flex-wrap gap-4 p-4 bg-[#030712] font-mono text-sm text-white mt-4 rounded-xl">
+                <div className="pointer-events-auto flex flex-wrap gap-4 p-4 bg-[#030712] font-mono text-sm text-white mt-4 rounded-xl">
                     <button className="flex items-center gap-2 px-4 py-2 border border-white/20 rounded-xl bg-white/5 hover:bg-white/10">
                         <span>🐚 View projects ↗</span>
                     </button>
@@ -52,7 +52,7 @@ export default function LandingPage() {
               linear-gradient(135deg, #040308 0%, #010102 100%)
             `,
                     }}
-                    className='flex flex-col h-full w-full max-w-lg p-8 sm:p-12 rounded-xl text-white gap-7 border border-white/10'
+                    className='pointer-events-auto flex flex-col h-full w-full max-w-lg p-8 sm:p-12 rounded-xl text-white gap-7 border border-white/10'
                 >
                     <div className='flex flex-row justify-between'>
                         <div className='border border-pink-300 p-2 rounded'>Algorithm</div>

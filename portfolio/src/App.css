@@ -1,0 +1,8 @@
+/* Re-enable clicks specifically for buttons, links, and navigation */
+.content-layer button,
+.content-layer a,
+.content-layer nav,
+.content-layer .badge {
+  pointer-events: auto; /* Buttons will still work normally */
+  cursor: pointer;
+}
