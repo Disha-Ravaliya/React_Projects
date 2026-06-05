@@ -2,12 +2,12 @@ import { useState } from 'react'
 import './App.css'
 import LandingPage from './components/LandingPage/LandingPage'
 import ElasticSquareGrid from './components/Background/ElasticSquareGrid' // <-- CRITICAL: Ensure this path correctly points to your background component!
-
+import LeetcodeProfile from './components/LeetcodeProfile/LeetcodeProfile'
 function App() {
   return (
     <div className="relative min-h-screen bg-[#0b0c10] overflow-hidden">
 
-      {/* 1. BACKGROUND LAYER: 
+      {/* 1. BACKGROUND LAYER:
         This div is absolutely positioned (absolute inset-0) to cover the entire viewport.
         It sits furthest back (z-0), serving as the interactive background behind all content.
       */}
@@ -32,15 +32,10 @@ function App() {
         />
       </div>
 
-      {/* 2. FOREGROUND CONTENT: 
-        This div sits on top (relative z-10) of the grid.
-        CRITICAL FUNCTIONALITY (pointer-events-none): 
-        By adding 'pointer-events-none' to this wrapper, we allow mouse interactions 
-        (like hovering and clicks) to "pass through" your LandingPage content, enabling
-        the background canvas grid to track and respond to your mouse perfectly!
-      */}
-      <div className="relative z-10 pointer-events-none">
-        <LandingPage />
+
+      <div className=" relative z-10 pointer-events-none">
+        {/* <LandingPage  /> */}
+        <LeetcodeProfile/>
       </div>
 
     </div>

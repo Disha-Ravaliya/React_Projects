@@ -131,14 +131,14 @@ const ElasticSquareGrid = ({
                     mouse.x, mouse.y, 0,
                     mouse.x, mouse.y, glowRadius
                 );
-                
+
                 // Bright sky blue at the exact center of mouse
                 gradient.addColorStop(0, 'rgba(56, 189, 248, 0.8)'); // Tailwind sky-400
                 // Fading blue halfway out
                 gradient.addColorStop(0.5, 'rgba(56, 189, 248, 0.2)');
                 // Returns to the default subtle background color at the edge
                 gradient.addColorStop(1, lineColor);
-                
+
                 currentStrokeStyle = gradient;
             }
 
