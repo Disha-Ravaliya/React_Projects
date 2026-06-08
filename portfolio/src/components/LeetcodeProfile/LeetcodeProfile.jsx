@@ -105,7 +105,7 @@ export default function LeetcodeProfile() {
                         </div>
                     </div>
                 </div>
-
+                
             </div>
 
             <div className="rightSidePart"></div>

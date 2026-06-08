@@ -1,6 +1,21 @@
-import React from 'react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import React, { useRef } from 'react';
 
 export default function LandingPage() {
+
+    const rotateCircle = useRef(null)
+
+    useGSAP(() => {
+        gsap.to(rotateCircle.current, {
+            rotation: 360,
+            duration: 8,
+            repeat: -1,
+            ease: "none",
+        });
+    });
+
+
     return (
         // Changed to min-h-screen, added gap-12, changed items-start to items-center, changed bg-black to bg-transparent
         <div className='min-h-screen w-full bg-transparent flex flex-col justify-center items-center sm:flex-row px-6 sm:px-10 py-12 gap-12'>
@@ -61,7 +76,7 @@ export default function LandingPage() {
 
                     <div className='w-full flex justify-center items-center'>
                         {/* Fixed `class` to `className` */}
-                        <div className="w-[150px] h-[150px] border-4 border-dotted border-blue-500 rounded-[50%] p-6 text-center mt-10 bg-transparent"></div>
+                        <div ref={rotateCircle} className="w-[150px] h-[150px] border-4 border-dotted border-blue-500 rounded-[50%] p-6 text-center mt-10 bg-transparent"></div>
                     </div>
 
                     <div className='info flex flex-col h-auto w-full'>

@@ -34,7 +34,7 @@ function App() {
 
 
       <div className=" relative z-10 pointer-events-none">
-        {/* <LandingPage  /> */}
+        <LandingPage  />
         <LeetcodeProfile/>
       </div>
 
