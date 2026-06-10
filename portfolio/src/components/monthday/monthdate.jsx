@@ -78,7 +78,7 @@ export default function MonthDays() {
             [&::-webkit-scrollbar]:h-2
             [&::-webkit-scrollbar-track]:bg-neutral-950
             [&::-webkit-scrollbar-thumb]:bg-neutral-800
-            [&::-webkit-scrollbar-thumb]:rounded-full">
+            [&::-webkit-scrollbar-thumb]:rounded-full pointer-events-auto">
             {fullMonthList}
         </div>
     );
