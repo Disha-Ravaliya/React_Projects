@@ -46,10 +46,7 @@ export default function LeetcodeProfile() {
                 </div>
             </div>
 
-            {/* Right Column (Calendar wrapper)
-                🔥 CRITICAL: `min-w-0` and `w-full` combined allow this container
-                to scale down and let the calendar scroll freely inside it.
-            */}
+            
             <div className="w-full min-w-0 rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6 backdrop-blur-md text-white">
                 <h3 className="text-sm font-bold uppercase tracking-wider text-[#b3bab5] mb-4">Submission Activity</h3>
                 <MonthDays />
