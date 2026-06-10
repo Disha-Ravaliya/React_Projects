@@ -3,6 +3,7 @@ import './App.css'
 import LandingPage from './components/LandingPage/LandingPage'
 import ElasticSquareGrid from './components/Background/ElasticSquareGrid' // <-- CRITICAL: Ensure this path correctly points to your background component!
 import LeetcodeProfile from './components/LeetcodeProfile/LeetcodeProfile'
+import MonthDays from './components/monthday/monthdate'
 function App() {
   return (
     <div className="relative min-h-screen bg-[#0b0c10] overflow-hidden">
@@ -33,9 +34,10 @@ function App() {
       </div>
 
 
-      <div className=" relative z-10 pointer-events-none">
+      <div className="relative z-10 pointer-events-none">
         <LandingPage  />
         <LeetcodeProfile/>
+        
       </div>
 
     </div>
