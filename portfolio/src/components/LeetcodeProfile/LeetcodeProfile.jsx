@@ -50,6 +50,7 @@ export default function LeetcodeProfile() {
             <div className="w-full min-w-0 rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6 backdrop-blur-md text-white">
                 <h3 className="text-sm font-bold uppercase tracking-wider text-[#b3bab5] mb-4">Submission Activity</h3>
                 <MonthDays />
+                
             </div>
 
         </div>
