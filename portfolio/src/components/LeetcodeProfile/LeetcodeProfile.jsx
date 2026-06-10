@@ -3,7 +3,7 @@ import MonthDays from "../monthday/monthdate";
 
 export default function LeetcodeProfile() {
     return (
-        <div className="min-h-screen w-full bg-zinc-950 px-4 py-10 md:px-10 flex flex-col lg:flex-row gap-8 items-start">
+        <div className="min-h-screen w-full   px-4 py-10 md:px-10 flex flex-col lg:flex-row gap-8 items-start">
 
             {/* Left Column (Stats) */}
             <div className="w-full lg:w-[450px] flex flex-col gap-6 shrink-0">
@@ -46,13 +46,29 @@ export default function LeetcodeProfile() {
                 </div>
             </div>
 
-            {/* Right Column (Calendar wrapper)
-                🔥 CRITICAL: `min-w-0` and `w-full` combined allow this container
-                to scale down and let the calendar scroll freely inside it.
-            */}
-            <div className="w-full min-w-0 rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6 backdrop-blur-md text-white">
-                <h3 className="text-sm font-bold uppercase tracking-wider text-[#b3bab5] mb-4">Submission Activity</h3>
-                <MonthDays />
+            {/* Right Column (Calendar/Activity Card) */}
+            <div className="flex-1 w-full min-w-0 rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6 backdrop-blur-md text-white">
+                
+                {/* Header Section */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-y-2 border-b border-neutral-800/60 pb-4 mb-6">
+                    <div className="tracking-tight">
+                        <h3 className="text-sm font-bold uppercase tracking-wider text-[#b3bab5]">Submission Activity</h3>
+                        <p className="text-xs text-neutral-400 mt-0.5">Your coding consistency over time</p>
+                    </div>
+                    
+                    {/* Optional Status Badges to fill space nicely */}
+                    <div className="flex items-center gap-4 text-xs font-medium text-neutral-400">
+                        <span>Total Active Days: <strong className="text-white">142</strong></span>
+                        <span className="hidden sm:inline text-neutral-700">|</span>
+                        <span>Year: <strong className="text-white">2026</strong></span>
+                    </div>
+                </div>
+
+                {/* Calendar Grid Container */}
+                <div className="w-full overflow-x-auto no-scrollbar py-2">
+                    <MonthDays />
+                </div>
+                
             </div>
 
         </div>
