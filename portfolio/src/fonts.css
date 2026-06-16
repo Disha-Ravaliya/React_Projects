@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+    --font-orbitron: "Orbitron", sans-serif;
+    --font-jakarta: "Plus Jakarta Sans", sans-serif;
+    --font-figtree: "Figtree", sans-serif;
+
+    --color-brand-bg: #070709;
+    --color-brand-card: rgba(15, 15, 22, 0.7);
+    --color-brand-border: rgba(255, 255, 255, 0.06);
+    --color-brand-glow: rgba(99, 102, 241, 0.12);
+}
+
+body {
+    background-color: var(--color-brand-bg);
+    color: #f4f4f5;
+    font-family: var(--font-jakarta);
+    overflow-x: hidden;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* Glassmorphism card for the gallery border container */
+.glass-card {
+    background: rgba(20, 20, 30, 0.45);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Shaders background pulse-glow animation */
+@keyframes pulse-glow {
+    0%,
+    100% {
+        opacity: 0.35;
+        filter: blur(80px);
+    }
+    50% {
+        opacity: 0.6;
+        filter: blur(110px);
+    }
+}
+.animate-pulse-glow {
+    animation: pulse-glow 8s infinite ease-in-out;
+}
+
+.font-orbitron {
+    font-family: var(--font-orbitron);
+}
+
+.font-jakarta {
+    font-family: var(--font-jakarta);
+}
+
+.font-figtree {
+    font-family: var(--font-figtree);
+}
+
+/* WebGL canvas container height layout */
+.canvas-container canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+}

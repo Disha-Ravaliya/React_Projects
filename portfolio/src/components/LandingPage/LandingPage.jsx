@@ -1,10 +1,14 @@
-import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import React, { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import { toArray } from 'gsap/all';
 
 export default function LandingPage() {
 
     const rotateCircle = useRef(null)
+    const dishaRef = useRef(null)
+    const ravaliyaRef = useRef(null)
+    const boxcontainer = useRef(null)
 
     useGSAP(() => {
         gsap.to(rotateCircle.current, {
@@ -13,33 +17,63 @@ export default function LandingPage() {
             repeat: -1,
             ease: "none",
         });
+
+        const tl = gsap.timeline();
+
+        tl.from(dishaRef.current, {
+            x: -300,
+            duration: 0.8,
+        })
+            .from(ravaliyaRef.current, {
+                x: -300,
+                duration: 0.8,
+            }, "-=0.5");
+
+        gsap.to(boxcontainer.current,{
+            repeat : -1,
+            yoyo:true,
+           duration:1.5,
+            rotationX: 5,
+            rotationY: 7,
+            rotationZ: 0,
+            //strokeDasharray : 100 1000,
+
+
+
+            //ease:Power2.easeInOut
+
+        });
     });
 
 
+
+
+
+
     return (
-        // Changed to min-h-screen, added gap-12, changed items-start to items-center, changed bg-black to bg-transparent
+
         <div className='min-h-screen w-full bg-transparent flex flex-col justify-center items-center sm:flex-row px-6 sm:px-10 py-12 gap-12'>
 
-            {/* Left Side: Removed hardcoded mt-30 and h-full so it naturally centers */}
+
             <div className='leftSidepart w-full sm:w-1/2 flex flex-col justify-center items-start gap-5'>
 
-                {/* top badge - added flex-wrap */}
-                <div className="pointer-events-auto flex flex-wrap items-center gap-3 px-6 py-2.5 bg-[#030712]/60 border border-sky-500/20 rounded-md font-mono text-sm font-semibold text-sky-300 tracking-[0.2em] mb-4 sm:mb-10">
+
+                <div className="pointer-events-auto flex flex-wrap items-center gap-3 px-6 py-2.5 bg-[#030712]/60 border border-sky-500/20 rounded-md text-sm font-semibold text-sky-300 tracking-[0.2em] mb-4 sm:mb-10 badge-text">
                     <span className="w-2 h-2 mr-1 bg-sky-300 rounded-full shadow-[0_0_8px_#7dd3fc]" />
                     <span>PROBLEM SOLVER</span> <span className="text-sky-500/40">•</span>
                     <span>REACT LEARNER</span> <span className="text-sky-500/40">•</span>
                     <span>DSA GRINDER</span>
                 </div>
 
-                {/* ( the big name) */}
-                <div className='pointer-events-auto text-white'>
+
+                <div className=' pointer-events-auto text-white'>
                     <h2 className='bg-gradient-to-r text-5xl sm:text-7xl from-blue-500 to-orange-500 bg-clip-text text-transparent pb-6'>
-                        Disha <span className='block text-white'> Ravaliya</span>
+                        <span ref={dishaRef} className="disha-name inline-block text-white">Disha</span> <span ref={ravaliyaRef} className='disha-name block text-white'>Ravaliya</span>
                     </h2>
                 </div>
 
                 {/* detail paragraph */}
-                <p className='pointer-events-auto text-[#989493]'>
+                <p className='pointer-events-auto text-[#989493] bio-text'>
                     CS student with a <span className='text-white font-bold'>strong foundation in algorithms & data structures. </span>
                     Now turning that analytical brain toward building real products with React. I solve problems for fun — the coding kind.
                 </p>
@@ -66,16 +100,16 @@ export default function LandingPage() {
               radial-gradient(circle at 50% 80%, rgba(168, 85, 247, 0.35) 0%, rgba(168, 85, 247, 0.1) 30%, transparent 60%),
               linear-gradient(135deg, #040308 0%, #010102 100%)
             `,
-                    }}
-                    className='pointer-events-auto flex flex-col h-full w-full max-w-lg p-8 sm:p-12 rounded-xl text-white gap-7 border border-white/10'
+                    }} ref={boxcontainer}
+                    className='pointer-events-auto flex flex-col h-full w-full max-w-lg p-8 sm:p-12 rounded-xl text-white gap-7 border border-white/10 project-card'
                 >
                     <div className='flex flex-row justify-between'>
                         <div className='border border-pink-300 p-2 rounded'>Algorithm</div>
-                        <div className='border border-pink-300 p-2 rounded'>ID : RD-2026</div>
+                        <div className='border border-pink-300 p-2 rounded'>ID: RD-2026</div>
                     </div>
 
                     <div className='w-full flex justify-center items-center'>
-                        {/* Fixed `class` to `className` */}
+
                         <div ref={rotateCircle} className="w-[150px] h-[150px] border-4 border-dotted border-blue-500 rounded-[50%] p-6 text-center mt-10 bg-transparent"></div>
                     </div>
 
