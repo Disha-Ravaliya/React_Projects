@@ -1,6 +1,6 @@
 import React from "react";
 import MonthDays from "../monthday/monthdate";
-import leetImage from "../../assets/leet.png";
+import LeetcodeCreature from "./LeetcodeCreature";
 
 export default function LeetcodeProfile() {
     return (
@@ -9,11 +9,7 @@ export default function LeetcodeProfile() {
             {/* Top Section */}
             <div className="w-full flex flex-col lg:flex-row gap-8 items-start lg:items-stretch">
                 <div className="w-full lg:flex-1 flex justify-center items-center min-h-[250px]">
-                    <img 
-                        src={leetImage} 
-                        alt="LeetCode" 
-                        className="max-w-full h-auto max-h-[350px] object-contain drop-shadow-2xl mix-blend-screen" 
-                    />
+                    <LeetcodeCreature />
                 </div>
                 {/* Top Left (Stats) */}
                 <div className="w-full lg:w-[450px] flex flex-col gap-6 shrink-0">
