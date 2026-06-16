@@ -29,7 +29,7 @@ const PROJECTS_DATA = [
 
 export default function ProjectShowcase() {
     return (
-        <div className="relative min-h-screen bg-[#070709] flex flex-col justify-center items-center p-4 md:p-8 font-jakarta">
+        <div className="relative min-h-screen bg-transparent flex flex-col justify-center items-center p-4 md:p-8 font-jakarta">
             {/* Decorative ambient background glows */}
             <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-500/10 rounded-full filter blur-[120px] pointer-events-none animate-pulse-glow" />
             <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-600/8 rounded-full filter blur-[130px] pointer-events-none animate-pulse-glow" style={{ animationDelay: '3s' }} />

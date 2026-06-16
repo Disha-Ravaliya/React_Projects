@@ -376,6 +376,8 @@ class App {
     this.scrollSpeed = scrollSpeed;
     this.scroll = { ease: scrollEase, current: 0, target: 0, last: 0 };
     this.onCheckDebounce = debounce(this.onCheck, 200);
+    this.boundUpdate = this.update.bind(this);
+    this.isPlaying = true;
     this.createRenderer();
     this.createCamera();
     this.createScene();
@@ -384,6 +386,26 @@ class App {
     this.createMedias(items, bend, textColor, borderRadius, font);
     this.update();
     this.addEventListeners();
+    this.setupObserver();
+  }
+  setupObserver() {
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (!this.isPlaying) {
+            this.isPlaying = true;
+            this.update();
+          }
+        } else {
+          this.isPlaying = false;
+          if (this.raf) {
+            window.cancelAnimationFrame(this.raf);
+            this.raf = null;
+          }
+        }
+      });
+    });
+    this.observer.observe(this.container);
   }
   createRenderer() {
     this.renderer = new Renderer({
@@ -476,6 +498,7 @@ class App {
     }
   }
   update() {
+    if (!this.isPlaying) return;
     this.scroll.current = lerp(this.scroll.current, this.scroll.target, this.scroll.ease);
     const direction = this.scroll.current > this.scroll.last ? 'right' : 'left';
     if (this.medias) {
@@ -483,7 +506,7 @@ class App {
     }
     this.renderer.render({ scene: this.scene, camera: this.camera });
     this.scroll.last = this.scroll.current;
-    this.raf = window.requestAnimationFrame(this.update.bind(this));
+    this.raf = window.requestAnimationFrame(this.boundUpdate);
   }
   addEventListeners() {
     this.boundOnResize = this.onResize.bind(this);
@@ -502,6 +525,7 @@ class App {
     window.addEventListener('touchend', this.boundOnTouchUp);
   }
   destroy() {
+    if (this.observer) this.observer.disconnect();
     window.cancelAnimationFrame(this.raf);
     window.removeEventListener('resize', this.boundOnResize);
     window.removeEventListener('mousewheel', this.boundOnWheel);

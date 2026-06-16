@@ -199,15 +199,12 @@ const ElasticSquareGrid = ({
             stateRef.current.mouse = { x: -1000, y: -1000 };
         };
 
-        const canvas = canvasRef.current;
-        canvas.addEventListener('mousemove', handleMouseMove);
-        canvas.addEventListener('mouseleave', handleMouseLeave);
+        window.addEventListener('mousemove', handleMouseMove);
 
         return () => {
             // Memory Hygiene: unbind all listeners on unmount
             window.removeEventListener('resize', handleResize);
-            canvas.removeEventListener('mousemove', handleMouseMove);
-            canvas.removeEventListener('mouseleave', handleMouseLeave);
+            window.removeEventListener('mousemove', handleMouseMove);
         };
     }, [initGrid]);
 

@@ -14,7 +14,7 @@ function App() {
     <div className="relative min-h-screen bg-[#0b0c10] overflow-hidden">
 
 
-      <div className="absolute inset-0 z-0">
+      <div className="fixed inset-0 z-0">
 
         <ElasticSquareGrid
           gridSize={80}

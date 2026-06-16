@@ -64,7 +64,7 @@ export default function ContactForm() {
 
     return (
 
-        <div ref={containerRef} className="min-h-screen bg-[#2f2f39] bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.05),)] flex items-center justify-center p-4 selection:bg-purple-500/30">
+        <div ref={containerRef} className="min-h-screen bg-transparent flex items-center justify-center p-4 selection:bg-purple-500/30">
 
 
             <div className="relative w-full max-w-2xl bg-[#111116]/90 backdrop-blur-md rounded-2xl p-10 md:p-14 shadow-2xl border border-zinc-900">
