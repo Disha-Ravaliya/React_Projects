@@ -28,12 +28,11 @@ function App() {
       </div>
 
 
-      <div className="relative z-10">
+      <div className="relative z-10 flex flex-col gap-32 md:gap-48 pb-32 pt-10">
         <LandingPage />
         <LeetcodeProfile />
         <ProjectShowcase />
         <Contact />
-
       </div>
 
     </div>

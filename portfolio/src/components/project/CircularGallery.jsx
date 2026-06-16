@@ -196,7 +196,8 @@ class Media {
     bend,
     textColor,
     borderRadius = 0,
-    font
+    font,
+    showCardTitle = true
   }) {
     this.extra = 0;
     this.geometry = geometry;
@@ -213,9 +214,12 @@ class Media {
     this.textColor = textColor;
     this.borderRadius = borderRadius;
     this.font = font;
+    this.showCardTitle = showCardTitle;
     this.createShader();
     this.createMesh();
-    this.createTitle();
+    if (this.showCardTitle) {
+      this.createTitle();
+    }
     this.onResize();
   }
   createShader() {
@@ -368,7 +372,9 @@ class App {
       borderRadius = 0,
       font = 'bold 30px Figtree',
       scrollSpeed = 2,
-      scrollEase = 0.05
+      scrollEase = 0.05,
+      onItemSelect,
+      showCardTitle = true
     } = {}
   ) {
     document.documentElement.classList.remove('no-js');
@@ -378,6 +384,9 @@ class App {
     this.onCheckDebounce = debounce(this.onCheck, 200);
     this.boundUpdate = this.update.bind(this);
     this.isPlaying = true;
+    this.onItemSelect = onItemSelect;
+    this.showCardTitle = showCardTitle;
+    this.activeIndex = -1;
     this.createRenderer();
     this.createCamera();
     this.createScene();
@@ -435,6 +444,7 @@ class App {
       { image: `https://picsum.photos/seed/3/800/600?grayscale`, text: 'Waterfall' }
     ];
     const galleryItems = items && items.length ? items : defaultItems;
+    this.galleryItemsLength = galleryItems.length;
     this.mediasImages = galleryItems.concat(galleryItems);
     this.medias = this.mediasImages.map((data, index) => {
       return new Media({
@@ -451,7 +461,8 @@ class App {
         bend,
         textColor,
         borderRadius,
-        font
+        font,
+        showCardTitle: this.showCardTitle
       });
     });
   }
@@ -503,6 +514,17 @@ class App {
     const direction = this.scroll.current > this.scroll.last ? 'right' : 'left';
     if (this.medias) {
       this.medias.forEach(media => media.update(this.scroll, direction));
+      
+      const width = this.medias[0].width;
+      const activeIndex = Math.round(Math.abs(this.scroll.current) / width);
+      const actualIndex = activeIndex % this.galleryItemsLength;
+      
+      if (this.activeIndex !== actualIndex) {
+        this.activeIndex = actualIndex;
+        if (this.onItemSelect) {
+          this.onItemSelect(actualIndex);
+        }
+      }
     }
     this.renderer.render({ scene: this.scene, camera: this.camera });
     this.scroll.last = this.scroll.current;
@@ -550,7 +572,9 @@ export default function CircularGallery({
   font = 'bold 30px Figtree',
   fontUrl,
   scrollSpeed = 2,
-  scrollEase = 0.05
+  scrollEase = 0.05,
+  onItemSelect,
+  showCardTitle = true
 }) {
   const containerRef = useRef(null);
   useEffect(() => {
@@ -566,7 +590,9 @@ export default function CircularGallery({
         borderRadius,
         font: resolvedFont,
         scrollSpeed,
-        scrollEase
+        scrollEase,
+        onItemSelect,
+        showCardTitle
       });
     });
     return () => {

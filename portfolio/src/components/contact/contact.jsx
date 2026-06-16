@@ -86,7 +86,7 @@ export default function ContactForm() {
 
                 <div className="relative z-10">
 
-                    <h2 className="text-4xl md:text-5xl font-semibold text-white tracking-tight leading-tight mb-12">
+                    <h2 className="text-5xl md:text-7xl font-orbitron font-black text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-400 tracking-tighter leading-tight mb-12">
                         Ready to build the <br />
                         <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 bg-clip-text text-transparent">
                             extraordinary?

@@ -66,15 +66,16 @@ export default function LandingPage() {
                 </div>
 
 
-                <div className=' pointer-events-auto text-white'>
-                    <h2 className='bg-gradient-to-r text-5xl sm:text-7xl from-blue-500 to-orange-500 bg-clip-text text-transparent pb-6'>
-                        <span ref={dishaRef} className="disha-name inline-block text-white">Disha</span> <span ref={ravaliyaRef} className='disha-name block text-white'>Ravaliya</span>
+                <div className=' pointer-events-auto'>
+                    <h2 className='font-orbitron text-6xl sm:text-8xl md:text-9xl font-black tracking-tighter pb-6 drop-shadow-sm'>
+                        <span ref={dishaRef} className="disha-name inline-block bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent pb-2">Disha</span> 
+                        <span ref={ravaliyaRef} className='disha-name block mt-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent pb-2'>Ravaliya</span>
                     </h2>
                 </div>
 
                 {/* detail paragraph */}
-                <p className='pointer-events-auto text-[#989493] bio-text'>
-                    CS student with a <span className='text-white font-bold'>strong foundation in algorithms & data structures. </span>
+                <p className='pointer-events-auto text-zinc-400 font-jakarta text-lg sm:text-xl max-w-lg leading-relaxed bio-text'>
+                    CS student with a <span className='text-cyan-400 font-semibold'>strong foundation in algorithms & data structures. </span>
                     Now turning that analytical brain toward building real products with React. I solve problems for fun — the coding kind.
                 </p>
 
@@ -114,9 +115,9 @@ export default function LandingPage() {
                     </div>
 
                     <div className='info flex flex-col h-auto w-full'>
-                        <div className='text-4xl font-bold'>
-                            <h2>Software Engineer</h2>
-                            <h4 className='text-sm font-light mt-6'>Building scalable systems & algorithms.</h4>
+                        <div className='text-4xl font-orbitron font-bold'>
+                            <h2 className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent pb-1">Software Engineer</h2>
+                            <h4 className='text-sm font-jakarta text-zinc-400 font-light mt-4 tracking-wide uppercase'>Building scalable systems & algorithms.</h4>
                         </div>
 
                         {/* Changed flex-row to flex-col sm:flex-row so boxes stack nicely on tiny phones */}
